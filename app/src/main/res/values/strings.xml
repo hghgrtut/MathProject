@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">MathTranslate</string>
+    <string name="hint_default_text">Введите исходную строку</string>
+    <string name="button_coding">Кодировка</string>
+    <string name="button_translate_text">Перевести</string>
+</resources>
