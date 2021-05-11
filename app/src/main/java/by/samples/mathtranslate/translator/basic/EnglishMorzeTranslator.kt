@@ -1,4 +1,6 @@
-package by.samples.mathtranslate.translator
+package by.samples.mathtranslate.translator.basic
+
+import by.samples.mathtranslate.translator.Translator
 
 object EnglishMorzeTranslator : Translator {
     override fun translate(text: String): String {
@@ -30,11 +32,9 @@ object EnglishMorzeTranslator : Translator {
 
     private fun toMorze(text: String): String {
         val result = StringBuilder()
-        text.forEach {
-            result.append(
-                if (englishToMorze.containsKey(it.toLowerCase())) englishToMorze[it.toLowerCase()]
-                else it)
-            result.append(' ')
+        text.forEach { result.append(
+            if (englishToMorze.containsKey(it.toLowerCase())) "${englishToMorze[it.toLowerCase()]} "
+            else it)
         }
         return result.toString()
     }

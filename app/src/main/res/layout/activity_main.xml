@@ -65,9 +65,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/margin_icons"
-        android:layout_marginTop="@dimen/margin_icons"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineCenter"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_copy" />
 
     <ImageView
@@ -75,9 +76,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_icons"
-        android:layout_marginTop="@dimen/margin_icons"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineCenter"
         app:srcCompat="@drawable/ic_swap_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

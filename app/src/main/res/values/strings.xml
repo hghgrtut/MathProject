@@ -3,4 +3,9 @@
     <string name="hint_default_text">Введите исходную строку</string>
     <string name="button_coding">Кодировка</string>
     <string name="button_translate_text">Перевести</string>
+    <string name="english_morze">Английский-Морзе</string>
+    <string name="huffman_shenon">Хаффмана-ШеннонаФано</string>
+    <string name="russian_huffman">Русский-Хаффмана</string>
+    <string name="russian_shenon">Русский-ШеннонаФано</string>
+    <string name="shenon_huffman">ШеннонаФано-Хаффмана</string>
 </resources>
