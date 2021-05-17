@@ -1,9 +1,9 @@
 package by.samples.mathtranslate.translator.basic
 
-import by.samples.mathtranslate.translator.basic.Util.isMorze
 import by.samples.mathtranslate.translator.Translator
+import by.samples.mathtranslate.translator.basic.Util.isMorze
 
-object EnglishMorzeTranslator : Translator {
+object RussianMorzeTranslator : Translator {
     override fun translate(text: String): String {
         var index = 0
         while (index < text.length && !text[index].isLetter() && !text[index].isMorze()) index++
@@ -24,7 +24,7 @@ object EnglishMorzeTranslator : Translator {
                     temp.append(text[i])
                     i++
                 }
-                result.append(morzeToEnglish[temp.toString()] ?: '?')
+                result.append(morzeToRussian[temp.toString()] ?: '?')
             } else { result.append(text[i]) }
             i++
         }
@@ -34,39 +34,44 @@ object EnglishMorzeTranslator : Translator {
     private fun toMorze(text: String): String {
         val result = StringBuilder()
         text.forEach { result.append(
-            if (englishToMorze.containsKey(it.toLowerCase())) "${englishToMorze[it.toLowerCase()]} "
+            if (russianToMorze.containsKey(it.toLowerCase())) "${russianToMorze[it.toLowerCase()]} "
             else it)
         }
         return result.toString()
     }
 
-    private val englishToMorze = hashMapOf(
-        'a' to ".-",
-        'b' to "-...",
-        'c' to "-.",
-        'd' to "-..",
-        'e' to ".",
-        'f' to "..-.",
-        'g' to "--.",
-        'h' to "....",
-        'i' to "..",
-        'j' to ".---",
-        'k' to "-.-",
-        'l' to ".-..",
-        'm' to "--",
-        'n' to "-.",
-        'o' to "---",
-        'p' to ".--.",
-        'q' to "--.-",
-        'r' to ".-.",
-        's' to "...",
-        't' to "-",
-        'u' to "..-",
-        'v' to "...-",
-        'w' to ".--",
-        'x' to "-..-",
-        'y' to "-.--",
-        'z' to "--..",
+    private val russianToMorze = hashMapOf(
+        'а' to ".-",
+        'б' to "-...",
+        'ц' to "-.",
+        'д' to "-..",
+        'е' to ".",
+        'ф' to "..-.",
+        'г' to "--.",
+        'х' to "....",
+        'и' to "..",
+        'й' to ".---",
+        'к' to "-.-",
+        'л' to ".-..",
+        'м' to "--",
+        'н' to "-.",
+        'о' to "---",
+        'п' to ".--.",
+        'щ' to "--.-",
+        'р' to ".-.",
+        'с' to "...",
+        'т' to "-",
+        'у' to "..-",
+        'ж' to "...-",
+        'в' to ".--",
+        'ь' to "-..-",
+        'ы' to "-.--",
+        'з' to "--..",
+        'ч' to "---.",
+        'ш' to "----",
+        'э' to "..-..",
+        'ю' to "..--",
+        'я' to ".-.-",
         '1' to ".----",
         '2' to "..---",
         '3' to "...--",
@@ -82,36 +87,40 @@ object EnglishMorzeTranslator : Translator {
         '-' to "-....-",
         '_' to "..--.-",
         '?' to "..--..",
-        '+' to ".-.-."
-    )
+        '+' to ".-.-.")
 
-    private val morzeToEnglish = hashMapOf(
-        ".-" to 'a',
-        "-..." to 'b',
-        "-." to 'c',
-        "-.." to 'd',
-        "." to 'e',
-        "..-." to 'f',
-        "--." to 'g',
-        "...." to 'h',
-        ".." to 'i',
-        ".---" to 'j',
-        "-.-" to 'k',
-        ".-.." to 'l',
-        "--" to 'm',
-        "-." to 'n',
-        "---" to 'o',
-        ".--." to 'p',
-        "--.-" to 'q',
-        ".-." to 'r',
-        "..." to 's',
-        "-" to 't',
-        "..-" to 'u',
-        "...-" to 'v',
-        ".--" to 'w',
-        "-..-" to 'x',
-        "-.--" to 'y',
-        "--.." to 'z',
+    private val morzeToRussian = hashMapOf(
+        ".-" to 'а',
+        "-..." to 'б',
+        "-." to 'ц',
+        "-.." to 'д',
+        "." to 'е',
+        "..-." to 'ф',
+        "--." to 'г',
+        "...." to 'х',
+        ".." to 'и',
+        ".---" to 'й',
+        "-.-" to 'к',
+        ".-.." to 'л',
+        "--" to 'м',
+        "-." to 'н',
+        "---" to 'о',
+        ".--." to 'п',
+        "--.-" to 'щ',
+        ".-." to 'р',
+        "..." to 'с',
+        "-" to 'т',
+        "..-" to 'у',
+        "...-" to 'ж',
+        ".--" to 'в',
+        "-..-" to 'ь',
+        "-.--" to 'ы',
+        "--.." to 'з',
+        "---." to 'ч',
+        "----" to 'ш',
+        "..-.." to 'э',
+        "..--" to 'ю',
+        ".-.-" to 'я',
         ".----" to '1',
         "..---" to '2',
         "...--" to '3',
@@ -127,6 +136,5 @@ object EnglishMorzeTranslator : Translator {
         "-....-" to '-',
         "..--.-" to '_',
         "..--.." to '?',
-        ".-.-." to '+'
-    )
+        ".-.-." to '+')
 }
