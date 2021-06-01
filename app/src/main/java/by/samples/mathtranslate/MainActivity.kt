@@ -2,6 +2,8 @@ package by.samples.mathtranslate
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import by.samples.mathtranslate.databinding.ActivityMainBinding
 import by.samples.mathtranslate.translator.Translator
 import by.samples.mathtranslate.translator.additional.EnglishHuffmanTranslator
@@ -15,17 +17,18 @@ import by.samples.mathtranslate.translator.basic.RussianShenonTranslator
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var translatorIndex = 0
         val translators = arrayOf(RussianMorzeTranslator, EnglishMorzeTranslator,
             RussianHuffmanTranslator, RussianShenonTranslator, HuffmanShenonTranslator,
             ShenonHuffmanTranslator, EnglishHuffmanTranslator, EnglishShenonTranslator)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setTitle(translators[translatorIndex])
         binding.buttonTranslate.setOnClickListener {
-            binding.translated.text =
-                translators[translatorIndex].translate(binding.input.editText!!.text.toString())
+            showTranslatedText(translators[translatorIndex])
         }
         binding.swapText.setOnClickListener {
             val tempString = binding.input.editText!!.text.toString()
@@ -37,10 +40,18 @@ class MainActivity : AppCompatActivity() {
             if (translatorIndex == translators.size) translatorIndex = 0
             setTitle(translators[translatorIndex])
         }
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun afterTextChanged(p0: Editable?) {
+                showTranslatedText(translators[translatorIndex])
+            }
+        }
+        binding.input.editText?.addTextChangedListener(textWatcher)
         setContentView(binding.root)
     }
 
-    fun setTitle(translator: Translator) = setTitle(when (translator) {
+    private fun setTitle(translator: Translator) = setTitle(when (translator) {
         is EnglishMorzeTranslator -> R.string.english_morze
         is EnglishHuffmanTranslator -> R.string.english_huffman
         is EnglishShenonTranslator -> R.string.english_shenon
@@ -50,4 +61,8 @@ class MainActivity : AppCompatActivity() {
         is HuffmanShenonTranslator -> R.string.huffman_shenon
         else -> R.string.shenon_huffman
     })
+
+    private fun showTranslatedText(translator: Translator) {
+        binding.translated.text = translator.translate(binding.input.editText!!.text.toString())
+    }
 }
