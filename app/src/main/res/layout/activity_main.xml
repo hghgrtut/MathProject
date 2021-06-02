@@ -40,36 +40,14 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
-    <Button
-        android:id="@+id/button_translate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/margin_button"
-        android:layout_marginBottom="@dimen/margin_button"
-        android:text="@string/button_translate_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/button_coding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_button"
-        android:layout_marginBottom="@dimen/margin_button"
-        android:text="@string/button_coding"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
-        android:id="@+id/copy"
+        android:id="@+id/coding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/margin_icons"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_copy" />
+        app:srcCompat="@drawable/ic_change_coding" />
 
     <ImageView
         android:id="@+id/swap_text"

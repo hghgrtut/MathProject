@@ -27,18 +27,16 @@ class MainActivity : AppCompatActivity() {
             ShenonHuffmanTranslator, EnglishHuffmanTranslator, EnglishShenonTranslator)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setTitle(translators[translatorIndex])
-        binding.buttonTranslate.setOnClickListener {
-            showTranslatedText(translators[translatorIndex])
-        }
         binding.swapText.setOnClickListener {
             val tempString = binding.input.editText!!.text.toString()
             binding.input.editText!!.setText(binding.translated.text.toString())
             binding.translated.text = tempString
         }
-        binding.buttonCoding.setOnClickListener {
+        binding.coding.setOnClickListener {
             translatorIndex++
             if (translatorIndex == translators.size) translatorIndex = 0
             setTitle(translators[translatorIndex])
+            showTranslatedText(translators[translatorIndex])
         }
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
