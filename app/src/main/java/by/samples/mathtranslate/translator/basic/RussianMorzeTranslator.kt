@@ -1,9 +1,13 @@
 package by.samples.mathtranslate.translator.basic
 
+import by.samples.mathtranslate.R
 import by.samples.mathtranslate.translator.Translator
 import by.samples.mathtranslate.translator.basic.Util.isMorze
 
 object RussianMorzeTranslator : Translator {
+
+    override val titleId: Int = R.string.russian_morze
+
     override fun translate(text: String): String {
         var index = 0
         while (index < text.length && !text[index].isLetter() && !text[index].isMorze()) index++

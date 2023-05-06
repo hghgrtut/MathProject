@@ -17,7 +17,7 @@ import by.samples.mathtranslate.translator.basic.RussianShenonTranslator
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         val translators = arrayOf(RussianMorzeTranslator, EnglishMorzeTranslator,
             RussianHuffmanTranslator, RussianShenonTranslator, HuffmanShenonTranslator,
             ShenonHuffmanTranslator, EnglishHuffmanTranslator, EnglishShenonTranslator)
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setTitle(translators[translatorIndex])
         binding.swapText.setOnClickListener {
             val tempString = binding.input.editText!!.text.toString()

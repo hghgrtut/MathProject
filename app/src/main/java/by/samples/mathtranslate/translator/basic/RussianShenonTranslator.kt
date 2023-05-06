@@ -1,9 +1,13 @@
 package by.samples.mathtranslate.translator.basic
 
+import by.samples.mathtranslate.R
 import by.samples.mathtranslate.translator.Translator
 import by.samples.mathtranslate.translator.basic.Util.isBinary
 
 object RussianShenonTranslator : Translator {
+
+    override val titleId: Int = R.string.russian_shenon
+
     override fun translate(text: String): String {
         var index = 0
         while (index < text.length && !text[index].isLetter() && !text[index].isBinary()) index++

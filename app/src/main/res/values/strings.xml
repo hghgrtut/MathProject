@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="true">MathTranslate</string>
+    <string name="app_name">MathTranslate</string>
     <string name="hint_default_text" translatable="false">Введите исходную строку</string>
     <string name="button_coding" translatable="false">Кодировка</string>
     <string name="button_translate_text" translatable="false">Перевести</string>
@@ -11,4 +11,6 @@
     <string name="russian_morze" translatable="false">Русский-Морзе</string>
     <string name="russian_shenon" translatable="false">Русский-ШеннонаФано</string>
     <string name="shenon_huffman" translatable="false">ШеннонаФано-Хаффмана</string>
+    <string name="swap_text">Поменять текста местами</string>
+    <string name="change_translator">Сменить переводчика</string>
 </resources>

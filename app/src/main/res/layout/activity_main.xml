@@ -47,7 +47,7 @@
         android:layout_marginRight="@dimen/margin_icons"
         app:layout_constraintBottom_toBottomOf="@id/guidelineCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_change_coding" />
+        app:srcCompat="@drawable/ic_change_translator" />
 
     <ImageView
         android:id="@+id/swap_text"
