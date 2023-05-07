@@ -3,6 +3,7 @@ package by.samples.mathtranslate.translator.basic
 import by.samples.mathtranslate.R
 import by.samples.mathtranslate.translator.Translator
 import by.samples.mathtranslate.translator.basic.Util.isBinary
+import java.util.Locale
 
 object RussianShenonTranslator : Translator {
 
@@ -42,7 +43,7 @@ object RussianShenonTranslator : Translator {
         val result = StringBuilder()
         text.replace("0", "ноль")
             .replace("1", "один")
-            .toLowerCase()
+            .lowercase(Locale.getDefault())
             .forEach { result.append(shenonToHuffman[it] ?: it) }
         return result.toString()
     }

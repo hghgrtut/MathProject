@@ -57,13 +57,8 @@ class ComposeMainActivity : ComponentActivity() {
         var title by remember { mutableStateOf(getString(translator.titleId)) }
         var textToTranslate by remember { mutableStateOf("") }
         val translatedText = translator.translate(textToTranslate)
+        setTitle(title)
         Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center) {
-            Text(
-                text = title,
-                fontWeight = FontWeight.ExtraBold,
-                modifier = defaultModifier
-            )
-            Spacer(modifier = Modifier.weight(1f))
             OutlinedTextField(
                 value = textToTranslate,
                 onValueChange = { textToTranslate = it },
@@ -95,7 +90,6 @@ class ComposeMainActivity : ComponentActivity() {
                 text = translatedText,
                 modifier = defaultModifier.padding(vertical = 0.dp)
             )
-            Spacer(modifier = Modifier.weight(1f))
         }
     }
 

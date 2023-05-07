@@ -37,7 +37,8 @@ object EnglishMorzeTranslator : Translator {
     private fun toMorze(text: String): String {
         val result = StringBuilder()
         text.forEach { result.append(
-            if (englishToMorze.containsKey(it.toLowerCase())) "${englishToMorze[it.toLowerCase()]} "
+            if (englishToMorze.containsKey(it.lowercaseChar()))
+                "${englishToMorze[it.lowercaseChar()]} "
             else it)
         }
         return result.toString()
